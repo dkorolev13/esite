@@ -54,4 +54,3 @@ jobs:
           source .venv/bin/activate
           cd ./web
           python3 manage.py test
-          coverage report
