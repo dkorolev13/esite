@@ -69,7 +69,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: user/app:latest
+          tags: dkorolev13/test:tagname
 
   CD-part:
     runs-on: ubuntu-latest
