@@ -51,6 +51,7 @@ jobs:
       #----------------------------------------------
       - name: Run tests
         run: |
+          echo Hello
           source .venv/bin/activate
           cd ./web
           python3 manage.py test
