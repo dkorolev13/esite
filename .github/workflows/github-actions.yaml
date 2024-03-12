@@ -72,7 +72,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: $IMAGE_NAME
+          tags: dkorolev13/test:${{ github.sha }}
 #      - name: Build and push
 #        run: |
 #            docker compose build
@@ -94,5 +94,5 @@ jobs:
           script: |
             cd /home/site
             docker stop django_container
-            docker pull $IMAGE_NAME
+            docker pull dkorolev13/test:${{ github.sha }}
             docker compose -f docker-compose.prod.yaml up -d
