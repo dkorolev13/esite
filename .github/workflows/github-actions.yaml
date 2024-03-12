@@ -1,7 +1,7 @@
 name: CI-CD Pipline
 env:
   APPLICATION_NAME: "My Django site"
-  IMAGE_NAME: "dkorolev13/test:${{ github.sha }}"
+  IMAGE_NAME: dkorolev13/test:${{ github.sha }}
   WORKDIR: "/home/site"
 
 on: pull_request
@@ -92,5 +92,6 @@ jobs:
             docker stop $(docker ps -a -q)
             docker rm $(docker ps -a -q)
             docker rmi -f $(docker images -aq)
-            docker pull ${{ env.IMAGE_NAME }}
+#            docker pull ${{ env.IMAGE_NAME }}
+            docker pull dkorolev13/test:${{ github.sha }}
             docker compose -f docker-compose.prod.yaml up -d
