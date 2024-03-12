@@ -1,12 +1,8 @@
 services:
   web:
-    image: dkorolev13/test:4
+    image: dkorolev13/test:2
     container_name: "django_container"
     # Берем Dockerfile из каталога app
-    build:
-      context: .
-      dockerfile: Dockerfile
-
 
 
     # Запускаем тестовый сервер
@@ -17,6 +13,6 @@ services:
       - ./web:/usr/src/app/
     # Открываем порт 8000 внутри и снаружи
     ports:
-      - 8881:8000
+      - 8802:8000
     # Файл содержащий переменные для контейнера
 

@@ -20,7 +20,7 @@ RUN pip3 install -r requirements.txt
 
 FROM python:3.11-slim as production
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/web
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
