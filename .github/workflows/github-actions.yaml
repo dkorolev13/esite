@@ -93,6 +93,8 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             cd /home/site
-            docker stop django_container
+            docker stop $(docker ps -a -q)
+            docker rm $(docker ps -a -q)
+            docker rmi -f $(docker images -aq)
             docker pull ${{ env.IMAGE_NAME }}
             docker compose -f docker-compose.prod.yaml up -d
