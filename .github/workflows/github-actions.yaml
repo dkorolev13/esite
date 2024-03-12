@@ -72,7 +72,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: dkorolev13/test:tagname
+          tags: $PACKAGE_NAME
 #      - name: Build and push
 #        run: |
 #            docker compose build
@@ -91,10 +91,8 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-#          port: ${{ secrets.PORT }}
           script: |
-            whoami
-            ls -al
+            
             cd /home/site
             docker stop django_container
             docker pull dkorolev13/test:tagname
