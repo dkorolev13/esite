@@ -97,6 +97,9 @@ jobs:
             ls -al
             cd /home/site
             docker stop django_container
+            docker pull dkorolev13/test:tagname
+            docker compose -f docker-compose.prod.yaml up -d
+
 
       - name: Where is I
         run: pwd
