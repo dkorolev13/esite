@@ -1,7 +1,7 @@
 name: CI-CD Pipline
 env:
   APPLICATION_NAME: "My Django site"
-  PACKAGE_NAME: "django_deploy_container_ver_${{ github.sha }}"
+  IMAGE_NAME: "dkorolev13/test:${{ github.sha }}"
 
 on: pull_request
 
@@ -72,7 +72,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: dkorolev13/test:${{ github.sha }}
+          tags: $IMAGE_NAME
 #      - name: Build and push
 #        run: |
 #            docker compose build
@@ -92,12 +92,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            
             cd /home/site
             docker stop django_container
-            docker pull dkorolev13/test:tagname
+            docker pull $IMAGE_NAME
             docker compose -f docker-compose.prod.yaml up -d
-
-
-      - name: Where is I
-        run: pwd
