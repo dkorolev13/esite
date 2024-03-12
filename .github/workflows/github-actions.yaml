@@ -68,17 +68,17 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-#      - name: Build and push
-#        uses: docker/build-push-action@v5
-#        with:
-#          push: true
-#          tags: dkorolev13/test:tagname
       - name: Build and push
-        run: |
-            docker compose build
-      - name: Push images
-        run: |
-         docker push ${{ env.PACKAGE_NAME }}
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: dkorolev13/test:tagname
+#      - name: Build and push
+#        run: |
+#            docker compose build
+#      - name: Push images
+#        run: |
+#         docker push ${{ env.PACKAGE_NAME }}
   CD-part:
     runs-on: ubuntu-latest
     needs: [CI-part]
