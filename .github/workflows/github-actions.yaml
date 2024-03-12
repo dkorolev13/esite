@@ -95,5 +95,8 @@ jobs:
           script: |
             whoami
             ls -al
+            cd /home/site
+            docker stop django_container
+
       - name: Where is I
         run: pwd
