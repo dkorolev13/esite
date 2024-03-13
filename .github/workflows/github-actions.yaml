@@ -110,6 +110,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             cd ${{ env.WORKDIR }}
+            echo "APP_IMAGE=$(echo ${{env.APP_IMAGE}} )" >> $GITHUB_ENV
             docker stop $(docker ps -a -q)
             docker rm $(docker ps -a -q)
             docker rmi -f $(docker images -aq)
