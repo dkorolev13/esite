@@ -1,6 +1,6 @@
 services:
   web:
-    image: dkorolev13/test:4
+    image: "${APP_IMAGE}"
     container_name: "django_container"
     # Берем Dockerfile из каталога app
     build:
@@ -14,7 +14,7 @@ services:
 
     # куда будут помещены данные из каталога app
     volumes:
-      - ./web:/usr/src/app/
+      - ./web:/usr/src/web/
     # Открываем порт 8000 внутри и снаружи
     ports:
       - 8881:8000
