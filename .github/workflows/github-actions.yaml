@@ -111,7 +111,7 @@ jobs:
           script: |
             cd ${{ env.WORKDIR }}
             echo "APP_IMAGE=$(echo ${{env.APP_IMAGE}} )"
-            export APP_IMAGE=$(echo ${{env.APP_IMAGE}}
+            export APP_IMAGE=$(echo ${{env.APP_IMAGE}})
             docker stop $(docker ps -a -q)
             docker rm $(docker ps -a -q)
             docker rmi -f $(docker images -aq)
