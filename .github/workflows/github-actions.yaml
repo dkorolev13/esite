@@ -1,8 +1,8 @@
 name: CI-CD Pipline
 env:
-  APP_IMAGE: ghcr.io/$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')/web
+#  APP_IMAGE: ghcr.io/$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')/web
   APPLICATION_NAME: "My Django site"
-#  APP_IMAGE: dkorolev13/test:${{ github.sha }}
+  APP_IMAGE: dkorolev13/test:${{ github.sha }}
   WORKDIR: "/home/site"
 
 on: pull_request
